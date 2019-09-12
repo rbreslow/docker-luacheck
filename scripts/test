@@ -19,7 +19,7 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [ "${1:-}" = "--help" ]; then
         usage
     else
-        docker run --rm -it \
+        docker run --rm \
             "quay.io/rbreslow/luacheck:latest" -v
     fi
 fi

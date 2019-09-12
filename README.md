@@ -1,4 +1,4 @@
-# docker-luacheck
+# docker-luacheck [![Docker Repository on Quay](https://quay.io/repository/rbreslow/luacheck/status "Docker Repository on Quay")](https://quay.io/repository/rbreslow/luacheck)
 
 This repository contains a `Dockerfile` for [luacheck](https://github.com/mpeterv/luacheck).
 
