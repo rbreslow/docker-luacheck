@@ -1,0 +1,23 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - run: ./scripts/cibuild
+
+  deploy:
+    if: github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - run: ./scripts/cipublish
+        env:
+          QUAY_USER: ${{secrets.quay_user}}
+          QUAY_PASSWORD: ${{secrets.quay_password}}
