@@ -20,6 +20,6 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         usage
     else
         docker run --rm \
-            "quay.io/rbreslow/luacheck:latest" -v
+            "quay.io/rbreslow/luacheck:${VERSION}" -v
     fi
 fi

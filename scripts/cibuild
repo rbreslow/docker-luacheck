@@ -19,8 +19,12 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
     if [ "${1:-}" = "--help" ]; then
         usage
     else
+        sed -e "s/%%VERSION%%/${VERSION}/" \
+            -e "s/%%LUA_VERSION%%/${LUA_VERSION}/" \
+            "Dockerfile.template" >Dockerfile
+
         docker \
-            build -t "quay.io/rbreslow/luacheck:latest" .
+            build -t "quay.io/rbreslow/luacheck:${VERSION}" .
 
         ./scripts/test
 

@@ -1,4 +1,4 @@
-FROM quay.io/rbreslow/lua:5.3
+FROM quay.io/rbreslow/lua:%%LUA_VERSION%%
 
 RUN \
     buildDeps="\
@@ -6,7 +6,7 @@ RUN \
     lua$LUA_VERSION-dev \
     " && \
     apk add --no-cache $buildDeps && \
-    luarocks install luacheck 0.23.0-1 && \
+    luarocks install luacheck %%VERSION%% && \
     apk del $buildDeps curl unzip
 
 ENTRYPOINT ["/usr/local/bin/luacheck"]

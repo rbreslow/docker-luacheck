@@ -1,0 +1,15 @@
+language: bash
+services: docker
+
+env:
+  - VERSION=0.23.0-1 LUA_VERSION=5.3 
+
+script:
+  - ./scripts/cibuild
+
+deploy:
+  - provider: script
+    script: "scripts/cipublish"
+    on:
+      repo: rbreslow/docker-luacheck
+      branch: master
